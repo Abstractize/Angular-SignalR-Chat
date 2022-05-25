@@ -14,16 +14,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Move to Server Directory
-        run: cd ./Server
-      
+            
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
+      - name: Move to Server Directory
+        run: cd ./Server
+        
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
