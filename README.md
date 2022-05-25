@@ -8,5 +8,5 @@ dotnet run
 ```
 cd Client
 npm install
-ng serve
+npm start
 ```
