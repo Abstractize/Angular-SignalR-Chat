@@ -1,4 +1,4 @@
-name: Build and deploy ANGULAR app to Azure Static Web Apps
+name: Build and deploy Angular app to Azure Static Web Apps
 
 on:
   push:
