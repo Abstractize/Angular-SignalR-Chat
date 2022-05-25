@@ -21,15 +21,11 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
         
-      - run: ls
-      
       - name: Build with dotnet
         run: cd ./Server && dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-
-      - run: cd ${{env.DOTNET_ROOT}} && ls
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Server
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
