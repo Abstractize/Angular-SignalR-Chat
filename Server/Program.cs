@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
         builder => builder
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .SetIsOriginAllowed(origin => true)
+            .SetIsOriginAllowed(_ => true)
             .AllowCredentials()
     );
 });
@@ -39,7 +39,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors("CorsPolicy");
+app.UseCors();
 
 app.MapHub<ChatHub>("/chat");
 
