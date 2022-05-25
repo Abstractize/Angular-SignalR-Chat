@@ -17,6 +17,7 @@ jobs:
         with:
           path: ./Server
             
+      - run: pwd && ls
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
