@@ -33,7 +33,7 @@ jobs:
           output_location: "dist/client/" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          API_URL: ${{secrets.API_URL}}
+          API_URL: ${{ secrets.API_URL }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
