@@ -6,16 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-String origin = Environment.GetEnvironmentVariable("ORIGIN") ?? String.Empty;
 
-builder.Services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+builder.Services.AddCors(options =>
 {
-    builder.AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowCredentials()
-        .WithOrigins(origin);
-}));
+    options.AddDefaultPolicy(
+        builder => builder
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetIsOriginAllowed(origin => true)
+            .AllowCredentials()
+    );
+});
 
 builder.Services.AddSignalR();
 
