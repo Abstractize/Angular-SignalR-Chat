@@ -1,71 +1,58 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap v5 - Alpha1</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <style>
-      .rows {
-        background-color: steelblue;
-        height: 400px;
-      }
-      .label {
-        background-color: midnightblue;
-        color: white;
-      }
-    </style>
 
-    <div id="main-container">
-      <div class="container">
-        <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
-          <div class="row rows align-items-end">
-            <div class="col-sm-14 label" *ngIf="messages.length > 0">
-              <div *ngFor="let message of messages">
-                <span>{{ message }}</span>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootstrap v5 - Alpha1</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
+</head>
+
+<body>
+  <style>
+    .scroll {
+      background-color: steelblue;
+      height: 900px;
+      overflow: auto;
+    }
+
+    .label {
+      background-color: midnightblue;
+      color: white;
+    }
+  </style>
+
+  <div id="main-container">
+    <div class="container">
+      <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
+        <div class="row scroll align-items-end">
+          <div class="container label" *ngIf="messages.length > 0">
+            <div *ngFor="let message of messages">
+              <span>{{ message }}</span>
             </div>
-            <label class="col-sm-2 rounded"
-              ><label class="p-1 label">Hello {{ nick }}!</label></label
-            >
-            <label class="col-sm-1 label rounded" for="message"
-              ><label class="p-1">Message</label></label
-            >
-            <input
-              class="col-sm-7 rounded"
-              type="text"
-              id="message"
-              name="message"
-              [(ngModel)]="message"
-              required
-            />
-            <button
-              class="col-sm-1 offset-1 p-1 btn btn-success rounded"
-              type="submit"
-              id="sendmessage"
-              [disabled]="!chatForm.valid"
-            >
+          </div>
+          <div class="container">
+            <label class="col-sm-2 rounded"><label class="label p-1">Hello {{ nick }}!</label></label>
+            <label class="col-sm-1 label rounded" for="message"><label class="p-1">Message</label></label>
+            <input class="col-sm-7 rounded" type="text" id="message" name="message" [(ngModel)]="message" required />
+            <button class="col-sm-1 offset-1 p-1 btn btn-success rounded" type="submit" id="sendmessage" [disabled]="!chatForm.valid">
               Send
             </button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
+
